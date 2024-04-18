@@ -24,7 +24,7 @@ class Validator {
     }
 
     public static function password($data) {
-        $minLength = 15;
+        $minLength = 8;
 
         $uppercaseRegex = '/[A-Z]/';
         $lowercaseRegex = '/[a-z]/';

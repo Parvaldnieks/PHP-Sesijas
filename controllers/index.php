@@ -1,4 +1,5 @@
 <?php
 
-$title = "Main page!";
+auth();
+
 require "views/index.view.php";

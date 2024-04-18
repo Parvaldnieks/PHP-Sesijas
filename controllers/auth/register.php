@@ -1,4 +1,7 @@
 <?php
+
+guest();
+
 require "Validator.php";
 require "Database.php";
 $config = require("config.php");
@@ -14,12 +17,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors["password"] = "Parolē ir nepilnības!";
     }
 
-    $query = "SELECT * FROM users WHERE email = :email";
+    $query = "SELECT * FROM users WHERE email = :email;";
     $params = [":email" => $_POST["email"]];
-    $result = $db->execute($query, $params)->fetch();
 
-    $query = "SELECT * FROM users WHERE password = :password";
-    $params = [":password" => $_POST["password"]];
     $result = $db->execute($query, $params)->fetch();
 
 // Parbaudis vai datubaze ir e-pasts
@@ -30,17 +30,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($errors)) {
         $query = "INSERT INTO users (email, password)
                   VALUES (:email, :password);";
-        $params = [
-            ":email" => $_POST["email"],
-            ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT)
-        ];
-        $db->execute($query, $params);
-    }
+            $params = [
+                ":email" => $_POST["email"],
+                ":password" => password_hash($_POST["password"], PASSWORD_BCRYPT)
+            ];
+        $result = $db->execute($query, $params);
 
-// Saglabāsim DB, izmantojot bind params, ar
-    $_POST["email"];
-    $_POST["password"];
+        $_SESSION["flash"] = "Tu esi veiksmīgi reģistrēts";
+        header("Location: /login");
+        die();
+    }
 }
+
+// Ielikt DB
 
 $title = "Register page!";
 require "views/auth/register.view.php";

@@ -13,7 +13,7 @@
                     <?php } ?>
 
     <label>Password:
-        <input name="password" />
+        <input name="password" type="password"/>
     </label>
         <?php if(isset($errors["password"])) { ?>
                 <p><?= $errors["password"] ?></p>
@@ -22,5 +22,10 @@
     <button>Register</button>
 
 </form>
+<a href="/register">Register</a>
+
+<?php if(isset($_SESSION["flash"])) {?>
+    <p class="flash"> <?= $_SESSION["flash"] ?> </p>
+<?php } ?>
 
 <?php require "views/components/footer.php" ?>

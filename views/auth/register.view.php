@@ -12,7 +12,7 @@
                 <p><?= $errors["email"] ?></p>
                     <?php } ?>
 
-    <label>Password: <span>(Jābūt 8 rakstzīmēm, vismaz 1 lielam burtam un mazam, kā arī ciparam un simbolam!)</span>
+    <label>Password: <span class="parole">(Jābūt 8 rakstzīmēm, vismaz 1 lielam burtam un mazam, kā arī ciparam un simbolam!)</span>
         <input name="password" type="password"/>
     </label>
         <?php if(isset($errors["password"])) { ?>

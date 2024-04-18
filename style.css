@@ -1,0 +1,30 @@
+h1 {
+    color: red;
+}
+
+.parole {
+    color: grey;
+    opacity: 0.5;
+}
+
+.flash {
+    opacity: 0;
+    animation: disappear 3s;
+    visibility: hidden;
+}
+
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    80% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
