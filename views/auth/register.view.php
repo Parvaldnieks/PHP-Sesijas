@@ -1,5 +1,5 @@
-<?php require "views/components/head.php" ?>
-<?php require "views/components/navbar.php" ?>
+<?php require "../views/components/head.php" ?>
+<?php require "../views/components/navbar.php" ?>
 
 <h1>Register!</h1>
 
@@ -23,4 +23,4 @@
 
 </form>
 
-<?php require "views/components/footer.php" ?>
+<?php require "../views/components/footer.php" ?>

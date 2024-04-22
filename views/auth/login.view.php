@@ -1,5 +1,5 @@
-<?php require "views/components/head.php" ?>
-<?php require "views/components/navbar.php" ?>
+<?php require "../views/components/head.php" ?>
+<?php require "../views/components/navbar.php" ?>
 
 <h1>Login!</h1>
 
@@ -22,10 +22,9 @@
     <button>Register</button>
 
 </form>
-<a href="/register">Register</a>
 
 <?php if(isset($_SESSION["flash"])) {?>
     <p class="flash"> <?= $_SESSION["flash"] ?> </p>
 <?php } ?>
 
-<?php require "views/components/footer.php" ?>
+<?php require "../views/components/footer.php" ?>
